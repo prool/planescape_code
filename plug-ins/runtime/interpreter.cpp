@@ -8,6 +8,8 @@
 *  CircleMUD is based on DikuMUD, Copyright (C) 1990, 1991.               *
 ************************************************************************ */
 
+#define PROOLDEBUG // prool
+
 #include "sysdep.h"
 
 #include "logstream.h"
@@ -1722,6 +1724,10 @@ void nanny(struct descriptor_data *d, char *arg)
             sprintf(saltpass, "$1$%s$", GET_PC_NAME(d->character));
             strcpy(GET_PASSWD(d->character), CRYPT(arg, saltpass));
 
+#ifdef PROOLDEBUG
+		printf("prool debug:: saltpass='%s' password='%s'\n", saltpass, GET_PASSWD(d->character));
+#endif
+
             SEND_TO_Q(MSG_RETYPE_PASS, d);
             if (STATE(d) == CON_NEWPASSWD)
                 STATE(d) = CON_CNFPASSWD;
@@ -1731,6 +1737,9 @@ void nanny(struct descriptor_data *d, char *arg)
             /* Проверка пароля */
         case CON_CNFPASSWD:
         case CON_CHPWD_VRFY:
+#ifdef PROOLDEBUG
+            printf("CRYPT(arg, GET_PASSWD(d->character))='%s'\n", CRYPT(arg, GET_PASSWD(d->character)));
+#endif
             if (strncmp(CRYPT(arg, GET_PASSWD(d->character)), GET_PASSWD(d->character),
                         MAX_PWD_LENGTH)) {
                 SEND_TO_Q(MSG_NOCHECK_PASS, d);
