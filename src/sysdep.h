@@ -15,7 +15,7 @@
 #ifdef _NIX_
 #define CIRCLE_UNIX
 #define POSIX
-#define CIRCLE_CRYPT //Убрать если не нужно криптование паролей.
+//#define CIRCLE_CRYPT //ц╣ц┌ц▓ц│ц■ц≤ ц┘ц⌠ц▄ц┴ ц▌ц┘ ц▌ц∙ц√ц▌ц▐ ц▀ц▓ц┴ц░ц■ц▐ц≈ц│ц▌ц┴ц┘ ц░ц│ц▓ц▐ц▄ц┘ц┼. // prool: no crypt
 #else
 #define CIRCLE_WINDOWS
 #endif
