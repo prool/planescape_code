@@ -2,6 +2,10 @@
 
 Tested on Ubuntu 16.04.
 
+Tested on Ubuntu 20.04.01 (crypt is gluchit) /prool
+
+Tested on Debian 11 /prool
+
 If you want to build a ready-to-run image using docker, see [these instructions](https://github.com/planescape-mud/planescape_docker).
 
 ### Install packages

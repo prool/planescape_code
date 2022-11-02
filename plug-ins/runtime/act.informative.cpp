@@ -1120,6 +1120,17 @@ void list_char_to_char(struct char_data *list, struct char_data *ch)
     send_to_charf(ch, buf2);
 }
 
+#if 1 // 1 - prool mod, 0 - orig
+const char *dirs_r[] = {
+    "Север",
+    "Восток",
+    "Юг",
+    "Запад",
+    "Вверх",
+    "Вниз",
+    "\n"
+};
+#else
 const char *dirs_r[] = {
     "С",
     "В",
@@ -1129,6 +1140,7 @@ const char *dirs_r[] = {
     "О",
     "\n"
 };
+#endif
 
 const char *dirs_e[] = {
     "N",
